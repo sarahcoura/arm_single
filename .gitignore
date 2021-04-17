@@ -6,5 +6,8 @@
 *.sv.bak
 *.wlf
 *.dat.bak
+transcript*
+*.wlf
+workarm/_info
 
 
