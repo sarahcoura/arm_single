@@ -5574,3 +5574,148 @@ add wave -position end  sim:/testbench/dut/arm/c/MOVF
 add wave -position end  sim:/testbench/dut/arm/c/MOVFlag
 add wave -position end  sim:/testbench/dut/arm/dp/rf/rf
 run
+# Compile of arm_single.sv failed with 1 errors.
+# Compile of arm_single.sv was successful.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading workarm.testbench
+# Loading workarm.top
+# Loading workarm.arm
+# Loading workarm.controller
+# Loading workarm.decoder
+# Loading workarm.condlogic
+# Loading workarm.flopenr
+# Loading workarm.condcheck
+# Loading workarm.datapath
+# Loading workarm.mux2
+# Loading workarm.flopr
+# Loading workarm.adder
+# Loading workarm.regfile
+# Loading workarm.extend
+# Loading workarm.alu
+# Loading workarm.imem
+# Loading workarm.dmem
+run -all
+# GetModuleFileName: Não foi possível encontrar o módulo especificado.
+# 
+# 
+# Break key hit
+# Break in Module dmem at C:/Users/sarah/OneDrive/IFES/Arquitetura de Computadores/arm_single/arm_single.sv line 135
+restart -f
+run -all
+# GetModuleFileName: Não foi possível encontrar o módulo especificado.
+# 
+# 
+# Break key hit
+# Simulation stop requested.
+quit -sim
+# End time: 23:54:22 on Apr 16,2021, Elapsed time: 0:30:20
+# Errors: 0, Warnings: 1
+vsim -gui workarm.testbench
+# vsim -gui workarm.testbench 
+# Start time: 23:54:37 on Apr 16,2021
+# Loading sv_std.std
+# Loading workarm.testbench
+# Loading workarm.top
+# Loading workarm.arm
+# Loading workarm.controller
+# Loading workarm.decoder
+# Loading workarm.condlogic
+# Loading workarm.flopenr
+# Loading workarm.condcheck
+# Loading workarm.datapath
+# Loading workarm.mux2
+# Loading workarm.flopr
+# Loading workarm.adder
+# Loading workarm.regfile
+# Loading workarm.extend
+# Loading workarm.alu
+# Loading workarm.imem
+# Loading workarm.dmem
+add wave -position end  sim:/testbench/dut/clk
+add wave -position end  sim:/testbench/dut/reset
+add wave -position end  sim:/testbench/dut/arm/Instr
+add wave -position end  sim:/testbench/dut/arm/c/cl/Flags
+add wave -position end  sim:/testbench/dut/arm/dp/rf/rf
+run -all
+add wave -position 4 sim:/testbench/dut/arm/dp/alu/*
+# Break key hit
+# Break in Module testbench at C:/Users/sarah/OneDrive/IFES/Arquitetura de Computadores/arm_single/arm_single.sv line 100
+restart -f
+run
+# GetModuleFileName: Não foi possível encontrar o módulo especificado.
+# 
+# 
+quit -sim
+# End time: 00:11:30 on Apr 17,2021, Elapsed time: 0:16:53
+# Errors: 0, Warnings: 1
+vsim -gui workarm.testbench
+# vsim -gui workarm.testbench 
+# Start time: 00:11:46 on Apr 17,2021
+# Loading sv_std.std
+# Loading workarm.testbench
+# Loading workarm.top
+# Loading workarm.arm
+# Loading workarm.controller
+# Loading workarm.decoder
+# Loading workarm.condlogic
+# Loading workarm.flopenr
+# Loading workarm.condcheck
+# Loading workarm.datapath
+# Loading workarm.mux2
+# Loading workarm.flopr
+# Loading workarm.adder
+# Loading workarm.regfile
+# Loading workarm.extend
+# Loading workarm.alu
+# Loading workarm.imem
+# Loading workarm.dmem
+# Compile of arm_single.sv was successful.
+quit -sim
+# End time: 00:12:24 on Apr 17,2021, Elapsed time: 0:00:38
+# Errors: 0, Warnings: 2
+vsim -gui workarm.testbench
+# vsim -gui workarm.testbench 
+# Start time: 00:12:38 on Apr 17,2021
+# Loading sv_std.std
+# Loading workarm.testbench
+# Loading workarm.top
+# Loading workarm.arm
+# Loading workarm.controller
+# Loading workarm.decoder
+# Loading workarm.condlogic
+# Loading workarm.flopenr
+# Loading workarm.condcheck
+# Loading workarm.datapath
+# Loading workarm.mux2
+# Loading workarm.flopr
+# Loading workarm.adder
+# Loading workarm.regfile
+# Loading workarm.extend
+# Loading workarm.alu
+# Loading workarm.imem
+# Loading workarm.dmem
+add wave -position end  sim:/testbench/dut/arm/clk
+add wave -position end  sim:/testbench/dut/arm/reset
+add wave -position end  sim:/testbench/dut/arm/Instr
+add wave -position end  sim:/testbench/dut/arm/c/NoWrite
+add wave -position end sim:/testbench/dut/arm/dp/alu/*
+add wave -position end  sim:/testbench/dut/arm/dp/rf/rf
+run
+add wave -position 4  sim:/testbench/dut/arm/c/cl/Flags
+restart -f
+run
+# GetModuleFileName: Não foi possível encontrar o módulo especificado.
+# 
+# 
+restart -f
+run
+# GetModuleFileName: Não foi possível encontrar o módulo especificado.
+# 
+# 
+restart -f
+add wave -position 4  sim:/testbench/dut/arm/c/dec/FlagW
+run
+# GetModuleFileName: Não foi possível encontrar o módulo especificado.
+# 
+# 

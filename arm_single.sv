@@ -96,19 +96,6 @@ module testbench();
       clk <= 1; # 5; clk <= 0; # 5;
     end
 
-  // check results
-  always @(negedge clk)
-    begin
-      if(MemWrite) begin
-        if(DataAdr === 100 & WriteData === 7) begin
-          $display("Simulation succeeded");
-          $stop;
-        end else if (DataAdr !== 96) begin
-          $display("Simulation failed");
-          $stop;
-        end
-      end
-    end
 endmodule
 
 module top(input  logic        clk, reset, 
@@ -264,6 +251,12 @@ module decoder(input  logic [1:0] Op,
 			ALUControl = 2'bx; // MOV
 			NoWrite = 1'b0;
                         MOVF = 1'b1;
+		     end
+
+	    4'b1000: begin
+			ALUControl = 2'b10; // TST
+			NoWrite = 1'b1;
+                        MOVF = 1'b0;
 		     end
 
   	    default: ALUControl = 2'bx;  // unimplemented
