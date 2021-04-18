@@ -127,7 +127,20 @@ module dmem(input  logic        clk, we,
 
 
   always_ff @(posedge clk)
-    if (we) RAM[a[31:2]] <= wd;
+
+    if (we)    
+		  
+	if (LSB)  // STRB 
+		case(a[1:0])
+		     2'b00:	RAM[a[31:2]][31:24] <= wd[7:0];
+		     2'b01:	RAM[a[31:2]][23:16] <= wd[7:0];
+		     2'b10:	RAM[a[31:2]][15:8] <= wd[7:0];
+		     2'b11:	RAM[a[31:2]][7:0] <= wd[7:0];
+		endcase
+
+		  // STR
+        else      RAM[a[31:2]] <= wd;
+
 endmodule
 
 module imem(input  logic [31:0] a,
@@ -211,27 +224,45 @@ module decoder(input  logic [1:0] Op,
   	                        // Data processing register
   	         else           controls = 10'b0000001001; 
 
-				 
-  	  2'b01: if (Funct[0])  // Load Register
+
+
+				// Memory 
+  	  2'b01: if (Funct[0])  // L = 1 (Load Register)
 				            
-			if (Funct[2])  // LDRB
+			if (Funct[2])  // B = 1 (LDRB)
 			    begin
 				controls = 10'b0001111000;
                                 LSB = 1'b1;
 			    end
 
-				// LDR
-			else    
+				
+			else           // B = 0 (LDR)    
 			    begin
 				controls = 10'b0001111000;
 				LSB = 1'b0;
 			    end
 					
-				// STR
- 		 else           controls = 10'b1001110100;
+ 		 else           // L = 0 (Store Register)
+
+			if (Funct[2])  // B = 1 (STRB)
+			    begin
+				controls = 10'b1001110100;
+                                LSB = 1'b1;
+			    end
+
+				
+			else           // B = 0 (STR)    
+			    begin
+				controls = 10'b1001110100;
+				LSB = 1'b0;
+			    end 
+
+
 
   	                        // B
   	  2'b10:                controls = 10'b0110100010; 
+
+
 
   	                        // Unimplemented
   	  default:              controls = 10'bx;          
@@ -500,7 +531,6 @@ module alu(input  logic [31:0] a, b,
       3'b010: Result = a & b;
       3'b011: Result = a | b;
       3'b100: Result = a ^ b;
-      //3'b101: Result = sum + 32'b011; //voltar aqui
 
     endcase
 
