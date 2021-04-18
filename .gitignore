@@ -8,6 +8,6 @@
 *.dat.bak
 transcript*
 *.wlf
-workarm/_info
+/workarm/*
 
 
