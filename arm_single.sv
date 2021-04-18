@@ -119,14 +119,8 @@ module dmem(input  logic        clk, we,
   logic [31:0] RAM[63:0];
 
   always_comb
-              
-    if (LSB)  // LDRB
-		case(a[1:0])
-		     2'b00:	rd = {24'b0, RAM[a[31:2]][31:24]};
-		     2'b01:	rd = {24'b0, RAM[a[31:2]][23:16]};
-		     2'b10:	rd = {24'b0, RAM[a[31:2]][15:8]};
-		     2'b11:	rd = {24'b0, RAM[a[31:2]][7:0]};
-		endcase
+              // LDRB
+    if (LSB)  rd = {24'b0, RAM[a[31:2]][7:0]};
 
               // LDR
     else      rd = RAM[a[31:2]]; // word aligned
